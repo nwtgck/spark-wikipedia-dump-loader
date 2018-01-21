@@ -22,9 +22,9 @@ object WikipediaDumpLoader {
         val revision: Revision = {
           val revisionRow: GenericRowWithSchema = row.getAs("revision")
           val textRow    : GenericRowWithSchema = revisionRow.getAs("text")
-          val text       : String               = textRow.getAs("_VALUE") // NOTE: "_VALUE" is like innerText (<text> tag has attribute)
+          val textOpt    : Option[String]       = Option(textRow.getAs[String]("_VALUE")) // NOTE: "_VALUE" is like innerText (<text> tag has attribute)
           // NOTE: revisionRow has other many fields! (they may be useful)
-          Revision(text=text)
+          Revision(textOpt=textOpt)
         }
         // Redirect information
         val redirectOpt: Option[Redirect] = for {
@@ -35,7 +35,7 @@ object WikipediaDumpLoader {
         Page(
           title       = title,
           revision    = revision,
-          redirectOpt =redirectOpt
+          redirectOpt = redirectOpt
         )
       }
 
