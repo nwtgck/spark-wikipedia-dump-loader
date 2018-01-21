@@ -1,16 +1,7 @@
 import org.apache.spark.sql.catalyst.expressions.GenericRowWithSchema
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.commons.lang3.StringUtils
-
-// TODO: Move these classes to file
-case class Page(title: String, revision: Revision, redirectOpt: Option[Redirect])
-case class Revision(text: String){
-  override def toString: String = {
-    s"""${productPrefix}(text="${StringUtils.abbreviate(text, 50).replace("\n", "")}")"""
-  }
-}
-case class Redirect(title: String)
+import io.github.nwtgck.wikipedia_dump_loader.{Page, Revision, Redirect}
 
 object Main {
   def main(args: Array[String]): Unit = {
