@@ -6,17 +6,14 @@ import org.scalatest.FunSuite
 
 class WikipediaDumpLoaderTest extends FunSuite {
 
-  val conf = new SparkConf()
-    .setAppName( "Spark Practice" )
-    .setMaster("local[*]" )
-    .set("spark.executor.memory", "1g")
-  val sc   = new SparkContext( conf )
   val sparkSession: SparkSession = SparkSession
     .builder()
     .appName("Wikipedia Dump Loader Test [Spark session]")
+    .master("local[*]")
+    .config("spark.executor.memory", "1g")
     .getOrCreate()
 
-  val classLoader = this.getClass.getClassLoader
+  val classLoader: ClassLoader = this.getClass.getClassLoader
 
   // (from: https://github.com/mindfulmachines/wiki-parser/blob/6a4a49caabd544eda01259c739468075d60aae1b/src/test/scala/wiki/ParserTest.scala)
   test("testPage's count"){
