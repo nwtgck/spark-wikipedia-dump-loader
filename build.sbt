@@ -1,6 +1,6 @@
-name := "wikipedia-dump-loader-scala"
-
-version := "0.1.0-SNAPSHOT"
+name         := "wikipedia-dump-loader-scala"
+organization := "io.github.nwtgck"
+version      := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.12"
 
