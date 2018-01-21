@@ -19,40 +19,33 @@ dependsOn(RootProject(uri("git://github.com/nwtgck/wikipedia-dump-loader-scala.g
 Here is a complete code to use `wikipedia-dump-loader`.
 
 ```scala
+package io.github.nwtgck.wikipedia_dump_loader_example
+
 import org.apache.spark.sql.{Dataset, SparkSession}
-import org.apache.spark.{SparkConf, SparkContext}
 import io.github.nwtgck.wikipedia_dump_loader.{Page, Redirect, Revision, WikipediaDumpLoader}
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf()
-      .setAppName( "Spark Practice" )
-      .setMaster("local[*]" )
-      .set("spark.executor.memory", "1g")
-    val sc   = new SparkContext( conf )
+      // Create spark session
+      val sparkSession: SparkSession = SparkSession
+        .builder()
+        .appName("Wikipedia Dump Loader Test [Spark session]")
+        .master("local[*]")
+        .config("spark.executor.memory", "1g")
+        .getOrCreate()
 
-    // Create classLoader for loading resources/
-    val classLoader = this.getClass.getClassLoader
+      // Create page Dataset
+      val pageDs: Dataset[Page] = WikipediaDumpLoader.readXmlFilePath(
+        sparkSession,
+        filePath = "./wikidump.xml"
+      )
 
-    // Create spark session
-    val sparkSession: SparkSession = SparkSession
-      .builder()
-      .appName("Spark XML Practice [Spark session]")
-      .getOrCreate()
-
-    // Create page Dataset
-    val pageDs: Dataset[Page] = WikipediaDumpLoader.readXmlFilePath(
-      sparkSession,
-      filePath = classLoader.getResource("wikidump.xml").getPath
-    )
-
-    // Print all pages
-    for(page <- pageDs){
-      println(page)
-    }
+      // Print all pages
+      for (page <- pageDs) {
+        println(page)
+      }
   }
 }
-
 ```
 
 `wikidump.xml` above is found in [HERE](https://raw.githubusercontent.com/nwtgck/wikipedia-dump-loader-example-scala/master/src/main/resources/wikidump.xml).
