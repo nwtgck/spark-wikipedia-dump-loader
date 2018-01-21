@@ -12,3 +12,5 @@ libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion
 libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion
 // https://mvnrepository.com/artifact/com.databricks/spark-xml
 libraryDependencies += "com.databricks" %% "spark-xml" % "0.4.1"
+// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.7"
