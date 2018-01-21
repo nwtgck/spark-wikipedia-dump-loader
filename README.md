@@ -1,4 +1,5 @@
 # wikipedia-dump-loader
+[![Build Status](https://travis-ci.org/nwtgck/wikipedia-dump-loader-scala.svg?branch=develop)](https://travis-ci.org/nwtgck/wikipedia-dump-loader-scala)
 
 A Loader for [Wikipedia Dump](https://dumps.wikimedia.org/) written in Scala
 
