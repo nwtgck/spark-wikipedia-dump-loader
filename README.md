@@ -11,7 +11,7 @@ Add the following to your `build.sbt`.
 ```scala
 // Add dependency of `wikipedia-dump-loader` in GitHub
 // (from: https://github.com/sbt/sbt/issues/3489)
-dependsOn(RootProject(uri("git://github.com/nwtgck/wikipedia-dump-loader-scala.git#6c63b83782f1e3249c001235d5e6057b98ecad5e")))
+dependsOn(RootProject(uri("https://github.com/nwtgck/wikipedia-dump-loader-scala.git#6c63b83782f1e3249c001235d5e6057b98ecad5e")))
 ```
 
 ## Example Usage
