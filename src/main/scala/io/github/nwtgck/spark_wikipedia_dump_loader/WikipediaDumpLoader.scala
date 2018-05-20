@@ -1,4 +1,4 @@
-package io.github.nwtgck.wikipedia_dump_loader
+package io.github.nwtgck.spark_wikipedia_dump_loader
 
 import org.apache.spark.sql.catalyst.expressions.GenericRowWithSchema
 import org.apache.spark.sql.{Dataset, SparkSession}
