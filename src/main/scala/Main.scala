@@ -1,6 +1,6 @@
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.{SparkConf, SparkContext}
-import io.github.nwtgck.wikipedia_dump_loader.{Page, Redirect, Revision, WikipediaDumpLoader}
+import io.github.nwtgck.spark_wikipedia_dump_loader.{Page, Redirect, Revision, WikipediaDumpLoader}
 
 object Main {
   def main(args: Array[String]): Unit = {
