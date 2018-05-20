@@ -1,4 +1,4 @@
-name         := "wikipedia-dump-loader"
+name         := "spark-wikipedia-dump-loader"
 organization := "io.github.nwtgck"
 version      := "0.1.0"
 
