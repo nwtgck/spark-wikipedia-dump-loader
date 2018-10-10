@@ -1,5 +1,5 @@
 # spark-wikipedia-dump-loader
-[![Build Status](https://travis-ci.org/nwtgck/wikipedia-dump-loader-scala.svg?branch=develop)](https://travis-ci.org/nwtgck/wikipedia-dump-loader-scala)
+[![Build Status](https://travis-ci.org/nwtgck/spark-wikipedia-dump-loader.svg?branch=develop)](https://travis-ci.org/nwtgck/spark-wikipedia-dump-loader)
 
 A [Wikipedia Dump](https://dumps.wikimedia.org/) Loader for Spark in Scala
 
